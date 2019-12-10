@@ -42,6 +42,6 @@ UserSchema.methods.generateToken = function() {
   UserSchema.statics.findByUsername = function(username) {
     return this.findOne({ username });
   };
-  
+
 const User = mongoose.model('User', UserSchema);
 export default User;
