@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -35,7 +36,9 @@ loadUser();
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </BrowserRouter>
   </Provider>, 
     document.getElementById('root')
