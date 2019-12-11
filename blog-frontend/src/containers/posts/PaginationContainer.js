@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import qs from 'qs';
 import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
