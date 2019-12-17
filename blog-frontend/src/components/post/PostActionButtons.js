@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/palette';
 import AskRemoveModal from './AskRemoveModal';
 
 const PostActionButtonsBlock = styled.div`
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   margin-bottom: 2rem;
   margin-top: -1.5rem;
 `;
 
 const ActionButton = styled.button`
+  /* display: flex; */
+  flex: none;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   color: ${palette.gray[6]};
@@ -23,12 +26,18 @@ const ActionButton = styled.button`
     background: ${palette.gray[1]};
     color: ${palette.cyan[7]};
   }
-  & + & {
+  /* & + & {
     margin-left: 0.25rem;
-  }
+  } */
+
+  ${props => 
+    props.right &&
+    css`
+      margin-left: auto;
+  `}
 `;
 
-const PostActionButtons = ({ onEdit, onRemove }) => {
+const PostActionButtons = ({ onEdit, onRemove, history }) => {
   const [modal, setModal] = useState(false);
 
   const onRemoveClick = () => {
@@ -44,11 +53,16 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
     onRemove();
   };
 
+  const onToList = () => {
+    history.push('/');
+  };
+
   return (
     <>
       <PostActionButtonsBlock>
-        <ActionButton onClick={onEdit}>수정</ActionButton>
-        <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+        <ActionButton onClick={onToList} leftButton>목록</ActionButton>
+        <ActionButton onClick={onEdit} right="right">수정</ActionButton>
+        <ActionButton onClick={onRemoveClick} right="right">삭제</ActionButton>
       </PostActionButtonsBlock>
       <AskRemoveModal
         visible={modal}
@@ -59,4 +73,4 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
   );
 };
 
-export default PostActionButtons;
+export default withRouter(PostActionButtons);
