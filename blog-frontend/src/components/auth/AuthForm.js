@@ -30,13 +30,17 @@ const StyledInput = styled.input`
 
 const Footer = styled.div`
   margin-top: 2rem;
-  text-align: right;
+  text-align: center;
   a {
     color: ${palette.gray[6]};
     text-decoration: underline;
     &:hover {
       color: ${palette.gray[9]};
     }
+  }
+  p {
+    color: ${palette.gray[7]};
+    margin-bottom: 0.5rem;
   }
 `;
 
@@ -51,6 +55,18 @@ const ErrorMessage = styled.div`
   margin-top: 1rem;
 `;
 
+const DividerBlock = styled.div`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  overflow: hidden;
+`;
+
+const Divider = styled.span`
+  position: relative;
+  color: ${palette.gray[10]};
+`;
+
 const textMap = {
     login: '로그인',
     register: '회원가입'
@@ -60,7 +76,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
     const text = textMap[type];
     return (
       <AuthFormBlock>
-        <h3>{text}</h3>
+        {/* <h3>{text}</h3> */}
         <form onSubmit={onSubmit}>
           <StyledInput 
             autoComplete="username" 
@@ -92,9 +108,17 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
             {text}
           </ButtonWithMarginTop>
         </form>
+        <DividerBlock>
+          <Divider>
+            또는
+          </Divider>
+        </DividerBlock>
         <Footer>
           {type === 'login' ? (
+            <>
+            <p>아직 테그로그 회원이 아니신가요?</p>
             <Link to="/register">회원가입</Link>
+            </>
           ) : (
             <Link to="/login">로그인</Link>
           )}
