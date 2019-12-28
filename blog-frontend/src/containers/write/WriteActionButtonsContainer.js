@@ -16,6 +16,10 @@ const WriteActionButtonsContainer = ({ history }) => {
   }));
 
   const onPublish = () => {
+    if(title === "") {
+      alert('제목을 입력해주세요.');
+    }
+
     if(originalPostId) {
       dispatch(updatePost({ title, body, tags, id: originalPostId }));
       return;
