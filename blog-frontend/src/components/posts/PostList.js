@@ -52,7 +52,7 @@ const PostItem = ({ post }) => {
         publishedDate={publishedDate} 
       />
       <Tags tags={tags} />
-      <p>{body}</p>
+      {/*<p>{body}</p>*/}
     </PostItemBlock>
   );
 };
