@@ -15,14 +15,14 @@ const PostHead = styled.div`
   padding-bottom: 3rem;
   margin-bottom: 3rem;
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 1.5;
     margin: 0;
   }
 `;
 
 const PostContent = styled.div`
-  font-size: 1.3125rem;
+  font-size: 1.1125rem;
   color: ${palette.gray[8]};
 `;
 

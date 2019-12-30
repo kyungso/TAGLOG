@@ -14,12 +14,12 @@ const PostListBlock = styled(Responsive)`
 const WritePostButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 `;
 
 const PostItemBlock = styled.div`
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   &:first-child {
     padding-top: 0;
   }
@@ -28,7 +28,7 @@ const PostItemBlock = styled.div`
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 1.4rem;
     margin-bottom: 0;
     margin-top: 0;
     &:hover {
@@ -52,7 +52,7 @@ const PostItem = ({ post }) => {
         publishedDate={publishedDate} 
       />
       <Tags tags={tags} />
-      {/*<p>{body}</p>*/}
+      <p>{body}</p>
     </PostItemBlock>
   );
 };
