@@ -116,7 +116,7 @@ const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
         <Footer>
           {type === 'login' ? (
             <>
-            <p>아직 테그로그 회원이 아니신가요?</p>
+            <p>아직 FAMLOG 회원이 아니신가요?</p>
             <Link to="/register">회원가입</Link>
             </>
           ) : (

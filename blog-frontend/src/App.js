@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 import PostListPage from './pages/PostListPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -11,13 +12,14 @@ const App = () => {
   return (
     <>
       <Helmet>
-        <title>TAGLOG</title>
+        <title>FAMLOG</title>
       </Helmet>
-      <Route component={PostListPage} path={['/@:username', '/community']} exact />
+      <Route component={HomePage} path='/' exact />
+      <Route component={PostListPage} path={['/community/@:username', '/community']} exact />
       <Route component={LoginPage} path='/login' />
       <Route component={RegisterPage} path='/register' />
-      <Route component={WritePage} path='/write' />
-      <Route component={PostPage} path='/@:username/:postId' />
+      <Route component={WritePage} path='/community/write' />
+      <Route component={PostPage} path='/community/@:username/:postId' />
     </>
   );
 }

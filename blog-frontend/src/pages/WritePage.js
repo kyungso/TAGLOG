@@ -9,7 +9,7 @@ const WritePage = () => {
     return (
       <Responsive>
         <Helmet>
-          <title>글 작성하기 - TAGLOG</title>
+          <title>글 작성하기 - FAMLOG</title>
         </Helmet>
         <EditorContainer />
         <TagBoxContainer />

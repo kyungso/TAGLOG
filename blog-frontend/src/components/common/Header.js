@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Responsive from './Responsive';
 import Button from './Button';
 
@@ -15,7 +15,7 @@ const Wrapper = styled(Responsive)`
   height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   .logo {
     font-size: 1.125rem;
     font-weight: 800;
@@ -23,8 +23,53 @@ const Wrapper = styled(Responsive)`
   }
   .right {
     display: flex;
+    margin-left: auto;
     align-items: center;
   }
+`;
+
+const categories = [
+  {
+      name: 'home',
+      text: '홈'
+  },
+  {
+      name: 'community',
+      text: '커뮤니티'
+  },
+];
+ 
+const CategoriesBlock = styled.div`
+    flex: none;
+    padding-top: 0.5rem;
+    width: 100px;
+    margin-left: 30px;
+`;
+
+const Category = styled(NavLink)`
+    font-size: 1rem;
+    cursor: pointer;
+    white-space: pre;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 0.25rem;
+
+    &:hover {
+        color: #495057;
+    }
+
+    &.active {
+        font-weight: 600;
+        border-bottom: 2px solid #22b8cf;
+        color: #22b8cf;
+        &:hover {
+            color: #3bc9db;
+        }
+    }
+
+    & + & {
+        margin-left: 1rem;
+    }
 `;
 
 const Spacer = styled.div`
@@ -41,7 +86,19 @@ const Header = ({ user, onLogout }) => {
     <>
      <HeaderBlock>
        <Wrapper>
-         <Link to="/" className="logo">TAGLOG</Link>
+         <Link to="/" className="logo">FAMLOG</Link>
+         <CategoriesBlock>
+          {categories.map(c => (
+            <Category 
+              key={c.name}
+              activeClassName="active"
+              exact={c.name === 'home'}
+              to={c.name === 'home' ? '/' : `/${c.name}`}
+            >
+            {c.text}
+            </Category>
+          ))}
+         </CategoriesBlock>
          {user ? (
             <div className="right">
               <UserInfo>{user.username}</UserInfo>

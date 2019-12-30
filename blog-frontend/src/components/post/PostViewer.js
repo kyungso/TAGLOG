@@ -42,7 +42,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
   return (
     <PostViewerBlock>
       <Helmet>
-        <title>{title.length < 11 ? title : `${title.slice(0, 10)}...`} - TAGLOG</title>
+        <title>{title.length < 11 ? title : `${title.slice(0, 10)}...`} - FAMLOG</title>
       </Helmet>
       <PostHead>
         <h1>{title}</h1>

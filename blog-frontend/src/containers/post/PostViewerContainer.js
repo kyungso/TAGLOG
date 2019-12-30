@@ -26,13 +26,13 @@ const PostViewerContainer = ({ match, history }) => {
 
   const onEdit = () => {
     dispatch(setOriginalPost(post));
-    history.push('/write');
+    history.push('/community/write');
   };
 
   const onRemove = async () => {
     try {
       await removePost(postId);
-      history.push('/');
+      history.push('/community');
     } catch(e) {
       console.log(e);
     }
