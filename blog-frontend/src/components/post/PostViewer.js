@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet-async';
 
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
+  margin-bottom: 4rem;
 `;
 
 const PostHead = styled.div`
