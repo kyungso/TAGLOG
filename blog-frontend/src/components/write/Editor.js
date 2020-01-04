@@ -1,18 +1,18 @@
 import React, { useRef, useEffect } from 'react';
 import Quill from 'quill';
-import 'quill/dist/quill.bubble.css';
+import 'quill/dist/quill.snow.css';
 import styled from 'styled-components';
 import palette from '../../lib/styles/palette';
 import Responsive from '../common/Responsive';
 
 const EditorBlock = styled(Responsive)`
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding: 5rem 0 2rem 0;
 `;
 
 const TitleInput = styled.input`
-  font-size: 3rem;
+  font-size: 2.5em;
   outline: none;
+  padding-left: 0.5rem;
   padding-bottom: 0.5rem;
   border: none;
   border-bottom: 1px solid ${palette.gray[4]};
@@ -21,14 +21,22 @@ const TitleInput = styled.input`
 `;
 
 const QuillWrapper = styled.div`
+  .ql-toolbar {
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+  }
+  .ql-container {
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+  }
   .ql-editor {
-    padding: 0;
+    padding: 1rem;
     min-height: 320px;
     font-size: 1.125rem;
     line-height: 1.5;
   }
   .ql-editor.ql-blank::before {
-    left: 0px;
+    left: 1rem;;
   }
 `;
 
@@ -38,15 +46,19 @@ const Editor = ({ title, body, onChangeField }) => {
 
     useEffect(() => {
       quillInstance.current = new Quill(quillElement.current, {
-        theme: 'bubble',
+        theme: 'snow',
         placeholder: '내용을 작성하세요...',
         modules: {
-          toolbar: [
-            [{ header: '1' }, { header: '2' }],
-            ['bold', 'italic', 'underline', 'strike'],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            ['blockquote', 'code-block', 'link', 'image'],
-          ],
+          toolbar: {
+            container: [
+              [{'font': []}],
+              [{ header: '1' }, { header: '2' }],
+              ['bold', 'italic', 'underline', 'strike'],
+              [{'color': []}, {'background': []}],
+              [{ list: 'ordered' }, { list: 'bullet' }, {'align': []}],
+              ['blockquote', 'code-block', 'link', 'image'],
+            ],
+          },
         },
       });
 

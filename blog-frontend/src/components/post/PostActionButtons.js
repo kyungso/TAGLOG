@@ -48,7 +48,7 @@ const PostActionButtons = ({ onEdit, onRemove, history }) => {
   };
 
   const onToList = () => {
-    history.push('/');
+    history.push('/posts');
   };
 
   return (
