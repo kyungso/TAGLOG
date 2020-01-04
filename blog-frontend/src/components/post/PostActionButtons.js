@@ -48,7 +48,7 @@ const PostActionButtons = ({ onEdit, onRemove, history }) => {
   };
 
   const onToList = () => {
-    history.push('/community');
+    history.push('/posts');
   };
 
   return (

@@ -25,6 +25,36 @@ const PostHead = styled.div`
 const PostContent = styled.div`
   font-size: 1.1125rem;
   color: ${palette.gray[8]};
+  .ql-align-center {
+    text-align: center;
+  }
+  .ql-align-right {
+    text-align: right;
+  }
+  .ql-align-justify {
+    text-align: justify;
+  }
+  blockquote {
+    border-left: 4px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-left: 16px;
+    margin-inline-start: 5px;
+    margin-inline-end: 5px;
+  }
+  pre {
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    .ql-syntax {
+      background-color: #23241f;
+      color: #f8f8f2;
+      overflow: visible;
+    }
+  }
 `;
 
 const PostViewer = ({ post, error, loading, actionButtons }) => {
@@ -55,6 +85,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
         <Tags tags={tags}/>
       </PostHead>
       {actionButtons}
+      {console.log(body)}
       <PostContent
         dangerouslySetInnerHTML={{ __html: body }}
       />

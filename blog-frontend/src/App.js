@@ -15,11 +15,11 @@ const App = () => {
         <title>FAMLOG</title>
       </Helmet>
       <Route component={HomePage} path='/' exact />
-      <Route component={PostListPage} path={['/community/@:username', '/community']} exact />
+      <Route component={PostListPage} path={['/posts/@:username', '/posts']} exact />
       <Route component={LoginPage} path='/login' />
       <Route component={RegisterPage} path='/register' />
-      <Route component={WritePage} path='/community/write' />
-      <Route component={PostPage} path='/community/@:username/:postId' />
+      <Route component={WritePage} path='/posts/write' />
+      <Route component={PostPage} path='/posts/@:username/:postId' />
     </>
   );
 }

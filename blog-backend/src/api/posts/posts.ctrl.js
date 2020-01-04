@@ -18,14 +18,27 @@ const sanitizeOption = {
     'ul',
     'ol',
     'li',
+    'em',
     'blockquote',
+    'pre',
     'a',
     'img',
+    'strong',
+    'br',
+    'span',
+
   ],
   allowedAttributes: {
     a: ['href', 'name', 'target'],
     img: ['src'],
     li: ['class'],
+    h1: ['class'],
+    h2: ['class'],
+    p: ['class'],
+    strong: ['class', 'style'],
+    blockquote: ['class'],
+    pre: ['class'],
+    span: ['class', 'style'],
   },
   allowedSchemes: ['data', 'http'],
 };
@@ -195,7 +208,7 @@ export const update = async ctx => {
     const nextData = { ...ctx.request.body }; // 객체를 복사
     // body 값이 있으면 HTML 필터링
     if(nextData.body) {
-      nextData.body = sanitizeHtml(nextData.body);
+      nextData.body = sanitizeHtml(nextData.body, sanitizeOption);
     }
     try {
         const post = await Post.findByIdAndUpdate(id, nextData, {

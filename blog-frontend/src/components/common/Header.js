@@ -15,7 +15,6 @@ const Wrapper = styled(Responsive)`
   height: 4rem;
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
   .logo {
     font-size: 1.125rem;
     font-weight: 800;
@@ -30,16 +29,29 @@ const Wrapper = styled(Responsive)`
 
 const categories = [
   {
-      name: 'home',
-      text: '홈'
+    name: 'home',
+    text: '홈'
   },
   {
-      name: 'community',
-      text: '커뮤니티'
+    name: 'posts',
+    text: '전체글'
+  },
+  {
+    name: 'album',
+    text: '사진첩'
+  },
+  {
+    name: 'schedule',
+    text: '일정'
+  },
+  {
+    name: 'member',
+    text: '멤버'
   },
 ];
  
 const CategoriesBlock = styled.div`
+    display: flex;
     flex: none;
     padding-top: 0.5rem;
     width: 100px;

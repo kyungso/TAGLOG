@@ -45,7 +45,7 @@ const PostItem = ({ post }) => {
   return (
     <PostItemBlock>
       <h2>
-        <Link to={`/community/@${user.username}/${_id}`}>{title}</Link>
+        <Link to={`/posts/@${user.username}/${_id}`}>{title}</Link>
       </h2>
       <SubInfo 
         username={user.username}
@@ -66,7 +66,7 @@ const PostList = ({ posts, loading, error, showWriteButton }) => {
     <PostListBlock>
       <WritePostButtonWrapper>
         {showWriteButton && (
-          <Button cyan to="/community/write">
+          <Button cyan to="/posts/write">
             새 글 작성하기
           </Button>
         )}
